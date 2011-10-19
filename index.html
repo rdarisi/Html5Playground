@@ -1,9 +1,189 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Html5 Playground</title>
-	</head>
-	<body>
-		
-	</body>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+
+	<title>AppUp HTML Playground!</title> 
+
+	<link rel="stylesheet" type="text/css" href="css/layout_default.css" />
+	<style type="text/css">
+	/* neutralize pane formatting BEFORE loading UI Theme */
+	.ui-layout-pane ,
+	.ui-layout-content {
+		background:	none;
+		border:		0;
+		padding:	0;
+		overflow:	visible;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/jquery_ui_all.css" />
+	<style type="text/css">
+	p				{ margin:		1em 0; }
+
+	/* use !important to override UI theme styles */
+	.grey			{ background:	#999 !important; }
+	.outline		{ /*border:		1px dashed #F00 !important;*/ }
+	.add-padding	{ padding:		10px !important; }
+	.no-padding		{ padding:		0 !important; }
+	.add-scrollbar	{ overflow:		auto; }
+	.no-scrollbar	{ overflow:		hidden; }
+	.allow-overflow	{ overflow:		visible; }
+	.full-height	{ height:		100%; }
+	button			{ cursor:		pointer; }
+
+	</style>
+
+	<script type="text/javascript" src="js/jquery.js"></script> 
+	<script type="text/javascript" src="js/jquery-ui-latest.js"></script> 
+	<script type="text/javascript" src="js/jquery.layout.js"></script>
+
+	<!-- load the Tabs & Accordions callbacks so we can use them below-->
+	<script type="text/javascript" src="js/jquery.tabs.js"></script>
+	<script type="text/javascript" src="js/jquery.accordions.js"></script>
+	<!-- OR load the all-in-one Callbacks package...
+	<script type="text/javascript" src="../lib/js/jquery.layout.callbacks.min-latest.js"></script>
+	-->
+
+    <!--<script type="text/javascript" src="../lib/js/themeswitchertool.js"></script> 
+	<script type="text/javascript" src="../lib/js/debug.js"></script>-->
+
+	<script type="text/javascript"> 
+
+	$(document).ready(function () {
+
+		// OUTER/PAGE LAYOUT
+		pageLayout = $("body").layout({ // DO NOT use "var pageLayout" here
+			west__size:			.30 
+		,	south__size:		.40 
+		,	east__initClosed: true
+		,	south__initClosed:	false
+		,	north__initClosed:	true
+		,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
+		//,	east__onresize:		$.layout.callbacks.resizePaneAccordions // east accordion nested inside a tab-panel
+		}); 
+
+		// TABS IN CENTER-PANE
+		// create tabs before wrapper-layout so elems are correct size before creating layout
+		pageLayout.panes.center.tabs({
+			show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
+		});
+
+		// WRAPPER-LAYOUT FOR TABS/TAB-PANELS, INSIDE OUTER-CENTER PANE
+		pageLayout.panes.center.layout({
+			closable:			false
+		,	resizable:			false
+		,	spacing_open:		0
+		,	center__onresize:	$.layout.callbacks.resizeTabLayout // tabs/panels are wrapped with an inner-layout
+		});
+
+		// LAYOUT TO CONTAIN HEADER+ACCORDION, INSIDE A TAB, INSIDE OUTER-CENTER PANE
+		/*$("#tab-panel-center-2").layout({
+			center__onresize:	$.layout.callbacks.resizePaneAccordions // accordion is inside center-pane
+		,	resizeWithWindow:	false	// resizing is handled by callbacks to ensure the correct resizing sequence
+		,	triggerEventsOnLoad: true	// force resize of accordion when layout inits - ie, becomes visible 1st time
+		});*/
+
+		// TABS INSIDE EAST-PANE
+		/*pageLayout.panes.east.tabs({
+			show:				$.layout.callbacks.resizePaneAccordions // resize tab2-accordion when tab is activated
+		});
+		pageLayout.sizeContent("east"); // resize pane-content-elements after creating east-tabs
+		*/
+		// INIT ALL ACCORDIONS - EVEN THOSE NOT VISIBLE
+		$("#accordion-west")	.accordion({ fillSpace: true });
+		$("#accordion-center")	.accordion({ fillSpace: true });
+		//$("#accordion-east")	.accordion({ fillSpace: true });
+
+
+		// THEME SWITCHER
+		addThemeSwitcher('#east-toolbar',{ top: '12px', right: '5px' });
+		// if a new theme is applied, it could change the height of some content,
+		// so call resizeAll to 'correct' any header/footer heights affected
+		// NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
+		setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
+	});
+
+	</script> 
+    
+</head> 
+<body> 
+
+
+<!--<div class="ui-layout-north ui-widget-content add-padding">North</div>--> 
+<div class="ui-layout-south ui-widget-content add-padding">HTML DISPLAY</div> 
+
+
+<div class="ui-layout-west no-scrollbar add-padding grey">
+	<div id="accordion-west">
+
+			<h3><a href="#">Example 1</a></h3>
+			<div>
+				<b>Accordion inside a layout-pane</b>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+					Vestibulum condimentum neque a velit laoreet dapibus. 
+					Etiam eleifend tempus pharetra.</p>
+				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
+				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
+				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
+			</div>
+
+			<h3><a href="#">Example 2</a></h3>
+			<div>
+				<p style="font-weight: bold;">Sed Non Urna</p>
+				<p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
+					Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
+					faucibus interdum tellus libero ac justo.</p>
+				<p>Vivamus non quam. In suscipit faucibus urna.</p>
+			</div>
+
+			<h3><a href="#">Example 3</a></h3>
+			<div>
+				Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+				Phasellus pellentesque purus in massa. Aenean in pede.
+			</div>
+
+			<h3><a href="#">Example 4</a></h3>
+			<div>
+				<p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
+					ac turpis egestas.</p>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+					Aenean lacinia mauris vel est.</p>
+				<p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+					Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+			</div>
+
+	</div>
+</div>
+
+
+<div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
+	<!-- center Tabs layout -->
+	<ul class="ui-layout-north no-scrollbar allow-overflow">
+		<li><a href="#tab-panel-center-1">HTML</a></li>
+		<li><a href="#tab-panel-center-2">JavaScript</a></li>
+		<li><a href="#tab-panel-center-3">CSS</a></li>
+	</ul>
+	<div class="ui-layout-center ui-widget-content add-scrollbar" style="border-top: 0;">
+		<div id="tab-panel-center-1" class="outline">
+			[PUT YOUR HTML HERE id: tab-panel-center-1]
+		</div>
+		<div id="tab-panel-center-2" class="no-padding no-scrollbar"
+		style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+			[PUT YOUR JavaScript HERE id: tab-panel-center-2]
+		</div>
+		<div id="tab-panel-center-3" class="outline">
+			[PUT YOUR CSS HERE id: tab-panel-center-3]
+		</div>
+	</div>
+	<!-- /center Tabs layout -->
+</div>
+
+
+<div id="tabs-east" class="ui-layout-east no-padding no-scrollbar" style="display: none;">
+
+</div>
+</div>
+
+</body> 
 </html>
