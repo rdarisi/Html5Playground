@@ -10,7 +10,7 @@
 */
 body {
 	font-family: Lucida Grande, Lucida Sans, Arial, Helvetica, sans-serif;
-	font-size: 100%;
+	font-size: 60%;
 	background-color: #EEE;
 }
 h1 {
@@ -71,7 +71,6 @@ table {
 		border-color: #666 #CCC;
 		vertical-align: top;
 	}
-
 
 /*
 *	COMMON LAYOUT PANE FORMATTING
