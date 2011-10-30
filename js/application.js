@@ -99,5 +99,6 @@ var exampleJSON = $.grep(example_data, function (ex) {
     return ex.name === example_name; 
 })[0];
 
-load_example(exampleJSON);
-
+if (exampleJSON != undefined) {
+    load_example(exampleJSON);
+}
