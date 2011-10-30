@@ -27,9 +27,9 @@
 	p				{ margin:		1em 0; }
 
 	/* use !important to override UI theme styles */
-	.grey			{ background:	#999 !important; }
+	.grey			{ background:	#333 !important; }
 	.outline		{ /*border:		1px dashed #F00 !important;*/ }
-	.add-padding	{ padding:		10px !important; }
+	.add-padding	{ padding:		5px !important; }
 	.no-padding		{ padding:		0 !important; }
 	.add-scrollbar	{ overflow:		auto; }
 	.no-scrollbar	{ overflow:		hidden; }
@@ -41,9 +41,7 @@
 	  border: 0;
 	  width: 100%;
 	  height: 100%;
-    }
-
-	
+	}	
 	</style>
 
 	<script type="text/javascript" src="js/jquery.js"></script> 
@@ -57,7 +55,7 @@
 	<script type="text/javascript" src="../lib/js/jquery.layout.callbacks.min-latest.js"></script>
 	-->
 
-    <!--<script type="text/javascript" src="../lib/js/themeswitchertool.js"></script> 
+	<!--<script type="text/javascript" src="../lib/js/themeswitchertool.js"></script> 
 	<script type="text/javascript" src="../lib/js/debug.js"></script>-->
 
 	<!-- Load Codemirror JavaScript files -->
@@ -67,63 +65,13 @@
 	<script type="text/javascript" src="js/htmlmixed.js"></script>	
 	<script type="text/javascript" src="js/javascript.js"></script>	
 
-	<script type="text/javascript"> 
+	<script>
+	  var example_data = [
+	  {name:"helloworld", htmlfile:"helloworld.html"}
+	  , {name:"Example 2", htmlfile:"example2.html"}];
+	</script>
 
-	$(document).ready(function () {
-
-		// OUTER/PAGE LAYOUT
-		pageLayout = $("body").layout({ // DO NOT use "var pageLayout" here
-			west__size:			.30 
-		,	south__size:		.40 
-		,	east__initClosed: true
-		,	south__initClosed:	false
-		,	north__initClosed:	true
-		,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
-		//,	east__onresize:		$.layout.callbacks.resizePaneAccordions // east accordion nested inside a tab-panel
-		}); 
-
-		// TABS IN CENTER-PANE
-		// create tabs before wrapper-layout so elems are correct size before creating layout
-		pageLayout.panes.center.tabs({
-			show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
-		});
-
-		// WRAPPER-LAYOUT FOR TABS/TAB-PANELS, INSIDE OUTER-CENTER PANE
-		pageLayout.panes.center.layout({
-			closable:			false
-		,	resizable:			false
-		,	spacing_open:		0
-		,	center__onresize:	$.layout.callbacks.resizeTabLayout // tabs/panels are wrapped with an inner-layout
-		});
-
-		// LAYOUT TO CONTAIN HEADER+ACCORDION, INSIDE A TAB, INSIDE OUTER-CENTER PANE
-		/*$("#tab-panel-center-2").layout({
-			center__onresize:	$.layout.callbacks.resizePaneAccordions // accordion is inside center-pane
-		,	resizeWithWindow:	false	// resizing is handled by callbacks to ensure the correct resizing sequence
-		,	triggerEventsOnLoad: true	// force resize of accordion when layout inits - ie, becomes visible 1st time
-		});*/
-
-		// TABS INSIDE EAST-PANE
-		/*pageLayout.panes.east.tabs({
-			show:				$.layout.callbacks.resizePaneAccordions // resize tab2-accordion when tab is activated
-		});
-		pageLayout.sizeContent("east"); // resize pane-content-elements after creating east-tabs
-		*/
-		// INIT ALL ACCORDIONS - EVEN THOSE NOT VISIBLE
-		$("#accordion-west")	.accordion({ fillSpace: true });
-		$("#accordion-center")	.accordion({ fillSpace: true });
-		//$("#accordion-east")	.accordion({ fillSpace: true });
-
-
-		// THEME SWITCHER
-		//addThemeSwitcher('#east-toolbar',{ top: '12px', right: '5px' });
-		// if a new theme is applied, it could change the height of some content,
-		// so call resizeAll to 'correct' any header/footer heights affected
-		// NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
-		setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
-	});
-	</script> 
-    
+	<script type="text/javascript" src="js/application.js"></script>	
 </head> 
 <body> 
 
@@ -137,42 +85,61 @@
 <div class="ui-layout-west no-scrollbar add-padding grey">
 	<div id="accordion-west">
 
-			<h3><a href="#">Example 1</a></h3>
-			<div>
-				<b>Accordion inside a layout-pane</b>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-					Vestibulum condimentum neque a velit laoreet dapibus. 
-					Etiam eleifend tempus pharetra.</p>
-				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
-				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
-				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
-			</div>
+	  <h3><a href="#">Tizen HTML5 Examples</a></h3>
+	  <div id="example_sidebar">
+	    
+	  </div>
+	  
+	  <h3><a href="#">WAC API examples</a></h3>
+	  <div>
+	    <p style="font-weight: bold;">Sed Non Urna</p>
+	    <p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
+	      Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
+	      faucibus interdum tellus libero ac justo.</p>
+	    <p>Vivamus non quam. In suscipit faucibus urna.</p>
+	  </div>
+	  
+	<h3><a href="#">JavaScript Examples</a></h3>
+	<div>
+	  Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+	  Phasellus pellentesque purus in massa. Aenean in pede.
 	</div>
+	
+	<h3><a href="#">CSS Examples</a></h3>
+	<div>
+	  <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
+	    ac turpis egestas.</p>
+	  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+	    Aenean lacinia mauris vel est.</p>
+	  <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+	    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+	</div>	
+</div>
 </div>
 
 
 <div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
-	<!-- center Tabs layout -->
-	<ul class="ui-layout-north no-scrollbar allow-overflow">
-		<li><a href="#tab-panel-center-1">HTML</a></li>
-		<li><a href="#tab-panel-center-2">JavaScript</a></li>
-		<li><a href="#tab-panel-center-3">CSS</a></li>
-	</ul>
-	<div class="ui-layout-center ui-widget-content add-scrollbar" style="border-top: 0;">
-		<div id="tab-panel-center-1" class="outline no-padding no-scrollbar">
-			<textarea id='editorHTML'>
+  <!-- center Tabs layout -->
+  <ul class="ui-layout-north no-scrollbar allow-overflow">
+    <li><a href="#tab-panel-center-1">HTML</a></li>
+    <li><a href="#tab-panel-center-2">JavaScript</a></li>
+    <li><a href="#tab-panel-center-3">CSS</a></li>
+  </ul>
+  <div class="ui-layout-center ui-widget-content add-scrollbar" style="border-top: 0;">
+    <div id="tab-panel-center-1" class="outline no-padding no-scrollbar">
+      <textarea id='editorHTML'>
 <html>
   <body>
-    <h1>Welcome to the AppUp HTML Playground.</h1>
+    <h1>Welcome to the Tizen HTML Playground.</h1>
   </body>
 </html>
-			</textarea>
-		</div>
-		<div id="tab-panel-center-2" class="outline no-padding no-scrollbar">
-			<textarea id='editorJS'>function myScript(){return 100;}</textarea>
-		</div>
-		<div id="tab-panel-center-3" class="outline no-padding no-scrollbar">
-			<textarea id='editorCSS'>
+      </textarea>
+    </div>
+    <div id="tab-panel-center-2" class="outline no-padding no-scrollbar">
+      <textarea id='editorJS'>function myScript(){return 100;}</textarea>
+    </div>
+    <div id="tab-panel-center-3" class="outline no-padding no-scrollbar">
+      <textarea id='editorCSS'>
 h1 {
   color: 'blue';
 }								
@@ -187,40 +154,41 @@ h1 {
 
 </div>
 </div>
-<script>
-  var delay;
-  var editorHTML = CodeMirror.fromTextArea(document.getElementById("editorHTML"), {
-  	value: "<html></html>"
-  , mode: "text/html"
-  , tabMode: "indent"
-  , lineNumbers: true
-  , onChange: function() {
-       clearTimeout(delay);
-       delay = setTimeout(updatePreview, 300);
-    }
-  });
-  var editorJS = CodeMirror.fromTextArea(document.getElementById("editorJS"), {
-    lineNumbers: true
-  , tabMode: "indent"
-  , mode:  "javascript"
-  });
-  var editorCSS = CodeMirror.fromTextArea(document.getElementById("editorCSS"), {
-    lineNumbers: true
-  , value: "function myScript(){return 100;}\n"
-  , tabMode: "indent"	
-  , mode:  "css"
-  });
-  
-  function updatePreview() {
-        var previewFrame = document.getElementById('preview');
-        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
-        preview.open();
-        var v = editorHTML.getValue();
-        preview.write(v);
-        preview.close();
-  }
-  setTimeout(updatePreview, 300);
-</script>
 
+<script type="text/javascript">
+    var delay;
+    var editorHTML = CodeMirror.fromTextArea(document.getElementById("editorHTML"), {
+	value: "<html></html>"
+	, mode: "text/html"
+	, tabMode: "indent"
+	, lineNumbers: true
+	, onChange: function() {
+	    clearTimeout(delay);
+	    delay = setTimeout(updatePreview, 300);
+	}
+    });
+    var editorJS = CodeMirror.fromTextArea(document.getElementById("editorJS"), {
+	lineNumbers: true
+	, tabMode: "indent"
+	, mode:  "javascript"
+    });
+    var editorCSS = CodeMirror.fromTextArea(document.getElementById("editorCSS"), {
+	lineNumbers: true
+	, value: "function myScript(){return 100;}\n"
+	, tabMode: "indent"	
+	, mode:  "css"
+    });
+
+    function updatePreview() {
+	var previewFrame = document.getElementById('preview');
+	var preview =  previewFrame.contentDocument || previewFrame.contentWindow.document;
+	preview.open();
+	var v = editorHTML.getValue();
+	preview.write(v);
+	preview.close();
+    }
+    // Set the first updatePreview timer
+    setTimeout(updatePreview, 300);
+</script>	
 </body> 
 </html>
