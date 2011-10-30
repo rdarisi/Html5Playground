@@ -60,12 +60,12 @@ $(document).ready(function () {
     /* Handle loading the examples */
     $('a.example_link').click(function(e){
 	e.preventDefault();
-	render_example($(this).attr("href"));
+	load_example($(this).attr("data"));
     });
 });
 
 function build_sidebar_link(ex) {
-    return '<p><a href="index.html?example=' + ex.name + '">' + ex.name + '</a></p>';
+    return '<p><a data="' + ex.name + '" class="example_link" href="index.html?example=' + ex.name + '">' + ex.name + '</a></p>';
 }
 
 function getURLParameter(name) {
@@ -74,31 +74,36 @@ function getURLParameter(name) {
     );
 }
 
-function buildExampleURL(name) {
-    var href = window.location.href.split('?')[0];
-    var url =  href.substring(0, href.length - 11) + "/examples/" + name;
-    return url;
-}
+// function build_example_url(name) {
+//     var href = window.location.href.split('?')[0];
+//     var url =  href.substring(0, href.length - 11) + "/examples/" + name;
+//     return url;
+// }
 
-function load_example(example) { 
+function fetch_and_render_example(exampleJSON) { 
      $.ajax({
       type: "GET",
-	 url: "examples/" + example.htmlfile,
+	 url: "examples/" + exampleJSON.htmlfile,
       dataType: 'html',
-	 success: function(data){
+	 // If the example is found then put it in the editor
+	 success: function(data) {
 	     editorHTML.setValue(data);
-	 },
+	 }
      });
 }
 
-// Parse the URL parameters and get the example name
-var example_name = getURLParameter("example");
-
-// Find the information associated with this example
-var exampleJSON = $.grep(example_data, function (ex) { 
-    return ex.name === example_name; 
-})[0];
-
-if (exampleJSON != undefined) {
-    load_example(exampleJSON);
+function load_example(example_name) {
+    // Find the information associated with this example
+    var exampleJSON = $.grep(example_data, function (ex) { 
+				 return ex.name === example_name; 
+			     })[0];
+    
+    // If exampleJSON is undefined, it means that an example was 
+    // requested that was not defined in the example_data variable.
+    if (exampleJSON != undefined) {
+	fetch_and_render_example(exampleJSON);
+    }
 }
+
+// Parse the URL parameters and get the example name
+var example_name = getURLParameter(name);
