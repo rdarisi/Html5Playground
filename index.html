@@ -30,12 +30,12 @@
 	/* use !important to override UI theme styles */
 	.grey			{ background:	#333 !important; }
 	.outline		{ /*border:		1px dashed #F00 !important;*/ }
-	.add-padding	{ padding:		5px !important; }
+	.add-padding	        { padding:		5px !important; }
 	.no-padding		{ padding:		0 !important; }
-	.add-scrollbar	{ overflow:		auto; }
-	.no-scrollbar	{ overflow:		hidden; }
-	.allow-overflow	{ overflow:		visible; }
-	.full-height	{ height:		100%; }
+	.add-scrollbar	        { overflow:		auto; }
+	.no-scrollbar	        { overflow:		hidden; }
+	.allow-overflow	        { overflow:		visible; }
+	.full-height	        { height:		100%; }
 	button			{ cursor:		pointer; }
 
 	iframe#preview {
@@ -45,16 +45,64 @@
 	}
 
 	#container {
-		background:	#999;
-		min-height:	300px;
-		min-width:	600px;
+		Min-Height:	300px;
 		position:	absolute;
 		top:		50px;	/* margins in pixels */
-		bottom:		50px;	/* could also use a percent */
-		left:		50px;
-		right:		50px;
+		bottom:		0px;	/* could also use a percent */
+		left:		0px;
+		right:		0px;
 	}
 	
+	#topbar {
+		Min-Height:	50px;
+		position:	absolute;
+		top:		0px;	/* margins in pixels */
+		bottom:		0px;	/* could also use a percent */
+		left:		0px;
+		right:		0px;
+	        background: #000;
+	}
+
+	#logo {
+	        margin-top: 5px;
+	
+	}
+
+	#nav {
+	float: right;
+	margin: 29px 0 0;
+	font: 200 18px/1 "Bebas Neue","League Gothic","Arial Narrow",Arial,Helvetica,sans-serif;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	}
+
+#nav-main {
+float: right;
+margin: 0;
+}
+#nav-main .menu {
+padding: 0 12px 0 0;
+background: url("../img/nav-arrows.png") 100% -545px no-repeat;
+}
+#nav-main .toggle {
+position: relative;
+z-index: 999;
+padding-right: 12px;
+margin: 0 -12px 0 0;
+background: url("../img/nav-arrows.png") no-repeat;
+}
+#nav-main a {
+display: inline-block;
+height: 18px;
+padding-bottom: 9px;
+background: url("../img/nav-arrows.png") center bottom no-repeat;
+}
+#nav a {
+color: #CCC;
+}
+.docs {
+color: #FB9500;
+}
 	</style>
 
 	<script type="text/javascript" src="js/jquery.js"></script> 
@@ -89,7 +137,19 @@
 <body> 
 
 
-<!--<div class="ui-layout-north ui-widget-content add-padding">North</div>--> 
+<header id="topbar" class="minor">
+  <div class="wrap">
+    <h1 id="logo"><a href=""><img src="css/images/appup/logo-appup-main.png" alt="Mozilla Developer Network" title="Mozilla Developer Network"</a></h1>
+    
+     
+            <p class="user-state"><a href="/Special:UserRegistration">Join MDN</a> | 
+	      <a href="/Special:UserLogin?returntotitle=%2Fen-US%2F">Log in</a></p>
+  
+    </div>
+  </header>
+
+<div id="container">
+<!--<Div Class="ui-layout-north ui-widget-content add-padding">North</div>--> 
 <div class="ui-layout-south ui-widget-content add-padding">
 	<iframe id="preview"></iframe>
 </div> 
@@ -131,7 +191,7 @@
 </div>
 
 
-<div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
+<Div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
   <!-- center Tabs layout -->
   <!-- <ul class="ui-layout-north no-scrollbar allow-overflow"> -->
   <!--   <li><a href="#tab-panel-center-1">HTML</a></li> -->
@@ -203,5 +263,6 @@
     // Set the first updatePreview timer
     setTimeout(updatePreview, 300);
 </script>
+</div>
 </body> 
 </html>

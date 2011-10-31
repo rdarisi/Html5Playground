@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // OUTER/PAGE LAYOUT
-    pageLayout = $("body").layout({ // DO NOT use "var pageLayout" here
+    pageLayout = $("div#container").layout({ // DO NOT use "var pageLayout" here
 	west__size:			.30 
 	,	south__size:		.40 
 	,	east__initClosed: true
