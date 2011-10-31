@@ -4,10 +4,10 @@ $(document).ready(function () {
     pageLayout = $("div#container").layout({ // DO NOT use "var pageLayout" here
 	west__size:			.30 
 	,	south__size:		.40 
-	,	east__initClosed: true
+	,	east__initClosed:       true
 	,	south__initClosed:	false
 	,	north__initClosed:	true
-	,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
+	//,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
 	//,	east__onresize:		$.layout.callbacks.resizePaneAccordions // east accordion nested inside a tab-panel 	         
     }); 
 
@@ -39,8 +39,8 @@ $(document).ready(function () {
       pageLayout.sizeContent("east"); // resize pane-content-elements after creating east-tabs
     */
     // INIT ALL ACCORDIONS - EVEN THOSE NOT VISIBLE
-    $("#accordion-west")	.accordion({ fillSpace: true });
-    $("#accordion-center")	.accordion({ fillSpace: true });
+    //$("#accordion-west")	.accordion({ fillSpace: true });
+    //$("#accordion-center")	.accordion({ fillSpace: true });
     //$("#accordion-east")	.accordion({ fillSpace: true });
 
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
     // if a new theme is applied, it could change the height of some content,
     // so call resizeAll to 'correct' any header/footer heights affected
     // NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
-    setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
+    //setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
 
     /* Dyanmically build the sidebar */
     var sidebar = $("#example_sidebar");
@@ -61,6 +61,30 @@ $(document).ready(function () {
     $('a.example_link').click(function(e){
 	e.preventDefault();
 	load_example($(this).attr("data"));
+    });
+		      
+    $('#html5-list-title').click(function() {
+      $('#html5-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#css-list-title').click(function() {
+      $('#css-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#wac-api-list-title').click(function() {
+      $('#wac-api-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#html5-application-list-title').click(function() {
+      $('#html5-application-list').slideToggle(100, function() {
+        // Animation complete.
+      });
     });
 });
 

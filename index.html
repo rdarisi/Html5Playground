@@ -37,7 +37,7 @@
 	.allow-overflow	        { overflow:		visible; }
 	.full-height	        { height:		100%; }
 	button			{ cursor:		pointer; }
-
+	
 	iframe#preview {
 	  border: 0;
 	  width: 100%;
@@ -64,17 +64,72 @@
 	}
 
 	#logo {
-	        margin-top: 5px;
-	
+	        margin-top: 5px;	
 	}
 
-	#nav {
-	float: right;
-	margin: 29px 0 0;
-	font: 200 18px/1 "Bebas Neue","League Gothic","Arial Narrow",Arial,Helvetica,sans-serif;
-	text-transform: uppercase;
-	letter-spacing: .5px;
+	.ui-layout-west #example_sidebar {
+	background: black url("css/images/appup/stripe.png");
+	height: 100%;
+
+	border-top: 4px solid #333;
+	margin-top: -4px;
+        padding: 5px;
+	color: #fff;
 	}
+
+	#example_sidebar h3 a {
+	   color: #F8D575;
+	   font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif;
+	   font-size: 1.10em;
+	   text-decoration: none;
+	}
+
+	#example_sidebar  a {
+	   color: #fff;
+	   font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif;
+	}
+
+
+	.ui-layout-west h3 a {
+	  position: relative;
+	  padding-bottom: 6px;
+	}
+
+
+	.examples                  { display:              none; }
+	ol.examples {
+	   font-style: italic;
+	   text-decoration: none;
+	   font-family: Georgia, Times, serif; 
+	}
+	
+	ol.examples li p {
+	   padding: 8px; 
+	   font-style: normal;
+	   font-family: Arial;
+	   border-left: 1px solid #999;
+	   font-size: 0.9em;
+	}
+	ol.examples a { font-size: 1.5em; }
+	ol.examples em { display: block;}
+	
+<html>
+  <body>
+    <h1>Welcome to the Tizen HTML Playground.</h1>
+  </body>
+</html>
+         width: 100%;
+   background: #444;
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,transparent), color-stop(10%,#400), color-stop(100%,transparent));
+   background: -webkit-linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
+   background: -moz-linear-gradient(left, transparent 0%, #444 50%, #transparent 100%);
+   background: -ms-linear-gradient(left, transparent 0%,#444 50%,#transparent 100%);
+   background: -o-linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
+   background: linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,0)), color-stop(15%,rgba(30,87,153,0.8)), color-stop(19%,rgba(30,87,153,1)), color-stop(20%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(80%,rgba(30,87,153,1)), color-stop(81%,rgba(30,87,153,1)), color-stop(85%,rgba(30,87,153,0.8)), color-stop(100%,rgba(30,87,153,0)));
+   }
+
 
 	</style>
 
@@ -110,49 +165,47 @@
 <body> 
 
 
-  <header id="topbar" class="minor">
+  <header id="topbar">
     <div class="wrap">
       <h1 id="logo"><a href=""><img src="css/images/appup/logo-appup-main.png" alt="AppUp Playground Home Page" title="AppUp Playground"/></a></h1>
     </div>
   </header>
   
-<div id="container">
-<!--<Div Class="ui-layout-north ui-widget-content add-padding">North</div>--> 
-<div class="ui-layout-south ui-widget-content add-padding">
-	<iframe id="preview"></iframe>
-</div> 
+  <div id="container">
+    <!--<Div Class="ui-layout-north ui-widget-content add-padding">North</div>--> 
+    <div class="ui-layout-south ui-widget-content add-padding">
+      <iframe id="preview"></iframe>
+    </div> 
+    
 
+    <div class="ui-layout-west add-scrollbar add-padding">
+      <!-- <div id="accordion-west"> -->
 
-<div class="pane ui-layout-west no-scrollbar add-padding grey">
-  <h3><a href="#">Tizen HTML5 Examples</a></h3>
-
-  <h3><a href="#">WAC API examples</a></h3>
-  <div>
-    <p style="font-weight: bold;">Sed Non Urna</p>
-    <p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
-      Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
-      faucibus interdum tellus libero ac justo.</p>
-    <p>Vivamus non quam. In suscipit faucibus urna.</p>
-  </div>
-  
-  <h3><a href="#">JavaScript Examples</a></h3>
-  <div>
-    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-    Phasellus pellentesque purus in massa. Aenean in pede.
-  </div>
-  
-  <h3><a href="#">CSS Examples</a></h3>
-  <div>
-    <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
-      ac turpis egestas.</p>
-    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-      Aenean lacinia mauris vel est.</p>
-    <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-  </div>	
-</div>
-
-
+      <div id="example_sidebar">
+	<h3><a id="html5-list-title" href="#">HTML5 Examples</a></h3>
+	<ol id="html5-list" class="examples">
+	  <li><p><em><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></em>A helloworld example</p></li>
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	</ol>
+	<h3><a id="css-list-title" href="#">CSS Examples</a></h3>
+	<ol id="css-list" class="examples">
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	</ol>
+	<h3><a id="wac-api-list-title" href="#">WAC API HTML5 Examples</a></h3>
+	<ol id="wac-api-list" class="examples">
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	</ol>
+	<h3><a id="html5-application-list-title" href="#">HTML5 Application Examples</a></h3>
+	<ol id="html5-application-list" class="examples">
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
+	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li> 
+	</ol>
+      </div>
+	<!-- </div> -->
+    </div>
+    
 
 
 
