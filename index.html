@@ -76,33 +76,6 @@
 	letter-spacing: .5px;
 	}
 
-#nav-main {
-float: right;
-margin: 0;
-}
-#nav-main .menu {
-padding: 0 12px 0 0;
-background: url("../img/nav-arrows.png") 100% -545px no-repeat;
-}
-#nav-main .toggle {
-position: relative;
-z-index: 999;
-padding-right: 12px;
-margin: 0 -12px 0 0;
-background: url("../img/nav-arrows.png") no-repeat;
-}
-#nav-main a {
-display: inline-block;
-height: 18px;
-padding-bottom: 9px;
-background: url("../img/nav-arrows.png") center bottom no-repeat;
-}
-#nav a {
-color: #CCC;
-}
-.docs {
-color: #FB9500;
-}
 	</style>
 
 	<script type="text/javascript" src="js/jquery.js"></script> 
@@ -156,48 +129,46 @@ color: #FB9500;
 
 
 <div class="pane ui-layout-west no-scrollbar add-padding grey">
-	<div id="accordion-west">
+  <h3><a href="#">Tizen HTML5 Examples</a></h3>
 
-	  <h3><a href="#">Tizen HTML5 Examples</a></h3>
-	  <div id="example_sidebar">
-	    
-	  </div>
-	  
-	  <h3><a href="#">WAC API examples</a></h3>
-	  <div>
-	    <p style="font-weight: bold;">Sed Non Urna</p>
-	    <p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
-	      Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
-	      faucibus interdum tellus libero ac justo.</p>
-	    <p>Vivamus non quam. In suscipit faucibus urna.</p>
-	  </div>
-	  
-	<h3><a href="#">JavaScript Examples</a></h3>
-	<div>
-	  Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-	  Phasellus pellentesque purus in massa. Aenean in pede.
-	</div>
-	
-	<h3><a href="#">CSS Examples</a></h3>
-	<div>
-	  <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
-	    ac turpis egestas.</p>
-	  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-	    Aenean lacinia mauris vel est.</p>
-	  <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-	    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-	</div>	
-</div>
+  <h3><a href="#">WAC API examples</a></h3>
+  <div>
+    <p style="font-weight: bold;">Sed Non Urna</p>
+    <p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
+      Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
+      faucibus interdum tellus libero ac justo.</p>
+    <p>Vivamus non quam. In suscipit faucibus urna.</p>
+  </div>
+  
+  <h3><a href="#">JavaScript Examples</a></h3>
+  <div>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede.
+  </div>
+  
+  <h3><a href="#">CSS Examples</a></h3>
+  <div>
+    <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
+      ac turpis egestas.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+      Aenean lacinia mauris vel est.</p>
+    <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  </div>	
 </div>
 
 
-<Div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
-  <!-- center Tabs layout -->
-  <!-- <ul class="ui-layout-north no-scrollbar allow-overflow"> -->
-  <!--   <li><a href="#tab-panel-center-1">HTML</a></li> -->
-  <!--   <li><a href="#tab-panel-center-2">JavaScript</a></li> -->
-  <!--   <li><a href="#tab-panel-center-3">CSS</a></li> -->
-  <!-- </ul> -->
+
+
+
+
+<div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
+
+  <ul class="ui-layout-north no-scrollbar allow-overflow">
+    <li><a href="#tab-panel-center-1">HTML</a></li>
+    <li><a href="#tab-panel-center-2">JavaScript</a></li>
+    <li><a href="#tab-panel-center-3">CSS</a></li>
+  </ul>
   <div class="ui-layout-center ui-widget-content add-scrollbar"> 
     <!-- <div id="tab-panel-center-1" class="outline no-padding no-scrollbar"> -->
       <textarea id='editorHTML'>
@@ -207,24 +178,24 @@ color: #FB9500;
   </body>
 </html>
       </textarea>
-<!--     </div> -->
-<!--     <div id="tab-panel-center-2" class="outline no-padding no-scrollbar"> -->
-<!--       <textarea id='editorJS'>function myScript(){return 100;}</textarea> -->
-<!--     </div> -->
-<!--     <div id="tab-panel-center-3" class="outline no-padding no-scrollbar"> -->
-<!--       <textarea id='editorCSS'> -->
-<!-- h1 { -->
-<!--   color: 'blue'; -->
-<!-- }								 -->
-<!-- 			</textarea> -->
-<!-- 		</div> -->
+    </div>
+    <div id="tab-panel-center-2" class="outline no-padding no-scrollbar">
+      <textarea id='editorJS'>function myScript(){return 100;}</textarea>
+    </div>
+    <div id="tab-panel-center-3" class="outline no-padding no-scrollbar">
+      <textarea id='editorCSS'>
+h1 {
+  color: 'blue';
+}
+			</textarea>
+		</div>
 	</div>
 	<!-- /center Tabs layout -->
 </div>
 
 
 <div id="tabs-east" class="ui-layout-east no-padding no-scrollbar" style="display: none;">
-
+  
 </div>
 </div>
 
