@@ -4,7 +4,7 @@ $(document).ready(function () {
     pageLayout = $("div#container").layout({ // DO NOT use "var pageLayout" here
 	west__size:			.30 
 	,	south__size:		.40 
-	,	east__initClosed:       true
+//	,	east__initClosed:       true
 	,	south__initClosed:	false
 	,	north__initClosed:	true
 	//,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
