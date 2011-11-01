@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> HTML5 - Output Tag </title>
+  </head>
+  
+  <body>
+    <header>
+      <h1> This example illustrates the Output tag. </h1>
+    </header>
+    <div align="center">
+      <section>
+	<article>
+	  <form>
+	    <p> Farenheit = Celcius</p>
+            <input type="number" name="Farenheit" placeholder="32" />
+            
+            =<output name="Celcius" for="Farenheit" onforminput="this.value=((5/9)*(Farenheit.value - 32))"></output>
+          </form>
+	</article>
+      </section>
+    </div>
+  </body>
+  
+</html>

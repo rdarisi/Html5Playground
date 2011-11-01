@@ -100,22 +100,182 @@
 	<!--   font-size: 1.1em; -->
 	<!-- } -->
 
-	<!-- .examples                  { display:              none; } -->
-	<!-- ol.examples { -->
-	<!--    font-style: italic; -->
-	<!--    text-decoration: none; -->
-	<!--    font-family: Georgia, Times, serif; -->
-	<!-- } -->
+	.examples                  { display:              none; }
+	ul.examples {
+	   font-style: italic;
+	   text-decoration: none;
+	   font-family: Georgia, Times, serif;
+	}
 	
-	<!-- ol.examples li p { -->
-	<!--    padding: 8px; -->
-	<!--    font-style: normal; -->
-	<!--    font-family: Arial; -->
-	<!--    border-left: 1px solid #999; -->
-	<!--    font-size: 0.9em; -->
+	ul.examples li p {
+	   padding: 8px;
+	   font-style: normal;
+	   font-family: Arial;
+	   border-left: 1px solid #999;
+	   font-size: 0.9em;
+	}
+	ul.examples a { font-size: 1.5em; }
+	ul.examples em { display: block;}
+
+	
+
+
+
+/*
+	NAVIGATION
+*/
+#main-nav {
+	position: absolute;
+	top: 10px;
+	right: 100px;
+	width: 100%;
+	text-align: right;
+	height: 25px;
+	z-index: 1;
+	-moz-transition:    all 0.6s ease-out;
+  -o-transition:      all 0.6s ease-out; 
+  -webkit-transition: all 0.6s ease-out; 
+  -ms-transition:     all 0.6s ease-out;
+}
+#main-nav ul {
+  white-space: nowrap;
+  margin-right: 10%;
+}
+#main-nav li {
+	display: inline;
+}
+#main-nav li:last-child {
+	margin-right: 9px;
+}
+#main-nav li:nth-of-type(1) a { color: #f3a01e; } #main-nav li:nth-of-type(1) a:before { background: #f3a01e; }
+#main-nav li:nth-of-type(2) a { color: #D05D2A; } #main-nav li:nth-of-type(2) a:before { background: #D05D2A; }
+#main-nav li:nth-of-type(3) a { color: #9dc425; } #main-nav li:nth-of-type(3) a:before { background: #9dc425; }
+#main-nav li:nth-of-type(4) a { color: #4b8db5; } #main-nav li:nth-of-type(4) a:before { background: #4b8db5; }
+#main-nav li:nth-of-type(5) a { color: #7c48b5; } #main-nav li:nth-of-type(5) a:before { background: #7c48b5; }
+
+#main-nav li a:before { display: none; }
+.home #main-nav .l-articles a:before,
+.page-template-video-archive-php #main-nav .l-videos a:before,
+.page-template-page-downloads-php #main-nav .l-downloads a:before,
+.page-template-page-snippet-php #main-nav .l-snippets a:before,
+.page-template-page-snippet-cat-php #main-nav .l-snippets a:before,
+.forums #main-nav .l-forums a:before { display: block; }
+
+#main-nav a {
+	display: inline-block;
+	padding: 3px 12px;
+	font-family: "kulturista-web-1","kulturista-web-2";
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 600;
+	position: relative;
+}
+#main-nav li a:hover {
+  color: black;
+  background: white;
+}
+		bottom:		0px;	/* could also use a percent */
+		left:		0px;
+		right:		0px;
+	}
+	
+	#topbar {
+		Min-Height:	0px;
+		position:	absolute;
+		top:		0px;	/* margins in pixels */
+		bottom:		0px;	/* could also use a percent */
+		left:		0px;
+		right:		0px;
+	        background: #ccc url("css/images/app/stripe.png");
+	}
+
+	#logo-image {
+		height:	100px;
+		position:	absolute;
+		top:		0px;	/* margins in pixels */
+		right:		0px;
+	        z: 10;
+	}
+
+	#logo {
+	    margin-top: 5px;	
+	}
+
+	border-top: 4px solid #333;
+	   margin-top: -4px;
+           padding: 5px;
+	   color: #fff;
+	}
+
+
+	<!-- .ui-layout-west #example_sidebar { -->
+	<!--    background: black url("css/images/appup/stripe.png"); -->
+	<!--    height: 100%; -->
 	<!-- } -->
-	<!-- ol.examples a { font-size: 1.5em; } -->
-	<!-- ol.examples em { display: block;} -->
+
+	<!-- #example_sidebar h3 a { -->
+	<!--    color: #F8D575; -->
+	<!--    font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif; -->
+	<!--    text-decoration: none; -->
+	<!-- } -->
+
+	<!-- #example_sidebar  a { -->
+	<!--    color: #fff; -->
+	<!--    font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif; -->
+	<!-- } -->
+
+	<!-- .ui-layout-west h3 a { -->
+	<!--   position: relative; -->
+	<!--   padding-bottom: 6px; -->
+	<!--   font-size: 1.1em; -->
+	<!-- } -->
+
+	.examples                  { display:              none; }
+	ul.examples {
+	   font-style: italic;
+	   text-decoration: none;
+	   font-family: Georgia, Times, serif;
+	}
+	
+	ul.examples li p {
+	   padding: 8px;
+	   font-style: normal;
+	   font-family: Arial;
+	   border-left: 1px solid #999;
+	   font-size: 0.9em;
+	}
+	ul.examples a { font-size: 1.5em; }
+	ul.examples em { display: block;}
+
+	
+	#main-nav {
+	   position: absolute;
+	   top: 10px;
+	   right: 100px;
+	   width: 100%;
+	   text-align: right;
+	}
+
+	#main-nav li:nth-of-type(1) a { color: #f3a01e; } #main-nav li:nth-of-type(1) a:before { background: #f3a01e; }
+	#main-nav li:nth-of-type(2) a { color: #D05D2A; } #main-nav li:nth-of-type(2) a:before { background: #D05D2A; }
+	#main-nav li:nth-of-type(3) a { color: #9dc425; } #main-nav li:nth-of-type(3) a:before { background: #9dc425; }
+	#main-nav li:nth-of-type(4) a { color: #4b8db5; } #main-nav li:nth-of-type(4) a:before { background: #4b8db5; }
+	#main-nav li:nth-of-type(5) a { color: #7c48b5; } #main-nav li:nth-of-type(5) a:before { background: #7c48b5; }
+	
+	#main-nav a {
+	   display: inline-block;
+	   padding: 3px 12px;
+	   font-family: "kulturista-web-1","kulturista-web-2";
+	   text-transform: uppercase;
+	   font-size: 0.85em;
+	   position: relative;
+	}
+
+
+	#main-nav li a:hover {
+	  color: black;
+	  background: white;
+	}
 
 	</style>
 
@@ -143,7 +303,12 @@
 	<script>
 	  var example_data = [
 	    {id: "example_1", name:"Daniel Example", category: "css", description: "A sample application", htmlfile:"helloworld.html"}
-	  , {id: "example_2", name:"Matthew Example", category: "html5", description: "Another sample", htmlfile:"example2.html"}];
+	  , {id: "audio_tag", name:"Audio Tag", category: "html5", description: "Demostrates the HTML5 audio tag", htmlfile:"audio_tag.html"}
+	  , {id: "canvas_tag", name:"Canvas Tag", category: "html5", description: "Demostrates the HTML5 canvas tag", htmlfile:"canvas_tag.html"}
+	  , {id: "output_tag", name:"Output Tag", category: "html5", description: "Demostrates the HTML5 output tag", htmlfile:"output_tag.html"}
+	  , {id: "ruby_tag", name:"Ruby Tag", category: "html5", description: "Demostrates the HTML5 Ruby tag", htmlfile:"ruby_tag.html"}
+	  , {id: "wbr_tag", name:"Wbr tag", category: "html5", description: "Demostrates the HTML5 wbr tag", htmlfile:"wbr_tag.html"}
+	  ];
 	</script>
 
 	<script type="text/javascript" src="js/application.js"></script>
@@ -154,6 +319,10 @@
 	      text-decoration: none;
 	      font-size: 0.75em;
 	   }
+	  #example_sidebar, #help_sidebar {
+	     font-size: 0.75em;
+	  }
+	  .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 0.5em; background: none; }
 	</style>	
 </head> 
 <body> 
@@ -163,6 +332,16 @@
     <div class="wrap">
       <h1 id="logo"><a href=""><img src="css/images/appup/logo-appup-main.png" alt="AppUp Playground Home Page" title="AppUp Playground"/></a></h1>
     </div>
+
+    <nav class="entry-unrelated" id="main-nav">
+      <ul>
+	<li class="li-articles"><a class="a-articles" href="/"><span>AppUp.com</span></a></li>
+	<li class="li-forums"><a class="a-forums" href="http://appdeveloper.intel.com/en-us/forum"><span>Forums</span></a></li>
+	<li class="li-snippets"><a class="a-snippets" href="http://appdeveloper.intel.com/"><span>Development</span></a></li>
+	<li class="li-downloads"><a class="a-downloads" href="http://appdeveloper.intel.com/en-us/sdk"><span>Downloads</span></a></li>
+	<li class="li-videos"><a class="a-videos" href=""><span>Videos</span></a></li>
+      </ul> 
+    </nav>
   </header>
   
   <img id="logo-image" src="css/images/appup/pulse.png" />
@@ -174,7 +353,7 @@
     </div> 
     
 
-    <div class="ui-layout-west add-scrollbar add-padding grey">
+    <div class="ui-layout-west add-scrollbar add-padding grey sidebar">
     
 	<ul class="ui-layout-north no-scrollbar allow-overflow">
 	  <li><a href="#tab-panel-center-5">Examples</a></li>
@@ -184,24 +363,34 @@
     	<div class="ui-layout-center ui-widget-content">
     	  <div id="tab-panel-center-5">
     	    <div id="example_sidebar">
+    	      <header>
+		<h1>Examples</h1>
+    	      </Header>
+	      
+	      <p>These examples run best in Chrome, Safari, Firefox or the Intel AppUp a.</p>
+	      
     	      <h3><a id="html5-list-title" href="#">HTML5 Examples</a></h3>
-    	      <ol id="html5-list" class="examples">
-    	      </ol>
+    	      <ul id="html5-list" class="examples">
+    	      </ul>
     	      <h3><a id="css-list-title" href="#">CSS Examples</a></h3>
-    	      <ol id="css-list" class="examples">
-    	      </ol>
+    	      <ul id="css-list" class="examples">
+    	      </ul>
     	      <h3><a id="wac-api-list-title" href="#">WAC API HTML5 Examples</a></h3>
-    	      <ol id="wac-api-list" class="examples">
-    	      </ol>
+    	      <ul id="wac-api-list" class="examples">
+    	      </ul>
     	      <h3><a id="html5-application-list-title" href="#">HTML5 Application Examples</a></h3>
-    	      <ol id="html5-application-list" class="examples">
-    	      </ol>
+    	      <ul id="html5-application-list" class="examples">
+    	      </ul>
     	    </div>
     	  </div>
-
-    	  <div id="tab-panel-center-6">
-    	    <P>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</P>
-    	  </div>
+	  
+    	  <div id="tab-panel-center-6" class="help-tab">
+	    <div id="help_sidebar">
+    	    <header>
+	      <h1>Intel AppUp Playground Help</h1>
+    	    </header>
+	    </div>
+	  </div>
 
     	</div>
     </div>
@@ -213,7 +402,6 @@
 
 
 <div class="ui-layout-center no-scrollbar add-padding grey">
-
   <ul class="ui-layout-north no-scrollbar allow-overflow">
     <li><a href="#tab-panel-center-1">HTML</a></li>
     <li><a href="#tab-panel-center-2">JavaScript</a></li>
@@ -224,7 +412,7 @@
       <textarea id='editorHTML'>
 <html>
   <body>
-    <h1>Welcome to the Tizen HTML Playground.</h1>
+    <h1>Welcome to the Intel AppUp HTML Playground.</h1>
   </body>
 </html>
       </textarea>
