@@ -13,15 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 		
 	<style type="text/css">
-	/* neutralize pane formatting BEFORE loading UI Theme */
-	.ui-layout-pane ,
-	.ui-layout-content {
-		background:	none;
-		border:		0;
-		padding:	0;
-		overflow:	visible;
-	}
-	
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/jquery_ui_all.css" />
 	<style type="text/css">
@@ -44,6 +36,10 @@
 	  height: 100%;
 	}
 
+	body {
+	   color: #fff;
+	}
+
 	#container {
 		Min-Height:	300px;
 		position:	absolute;
@@ -54,7 +50,7 @@
 	}
 	
 	#topbar {
-		Min-Height:	50px;
+		Min-Height:	0px;
 		position:	absolute;
 		top:		0px;	/* margins in pixels */
 		bottom:		0px;	/* could also use a percent */
@@ -63,73 +59,63 @@
 	        background: #000;
 	}
 
-	#logo {
-	        margin-top: 5px;	
+	#logo-image {
+		height:	100px;
+		position:	absolute;
+		top:		0px;	/* margins in pixels */
+		right:		0px;
+	        z: 10;
 	}
 
-	.ui-layout-west #example_sidebar {
-	background: black url("css/images/appup/stripe.png");
-	height: 100%;
+	#logo {
+	    margin-top: 5px;	
+	}
 
 	border-top: 4px solid #333;
-	margin-top: -4px;
-        padding: 5px;
-	color: #fff;
-	}
-
-	#example_sidebar h3 a {
-	   color: #F8D575;
-	   font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif;
-	   font-size: 1.10em;
-	   text-decoration: none;
-	}
-
-	#example_sidebar  a {
+	   margin-top: -4px;
+           padding: 5px;
 	   color: #fff;
-	   font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif;
 	}
 
 
-	.ui-layout-west h3 a {
-	  position: relative;
-	  padding-bottom: 6px;
-	}
+	<!-- .ui-layout-west #example_sidebar { -->
+	<!--    background: black url("css/images/appup/stripe.png"); -->
+	<!--    height: 100%; -->
+	<!-- } -->
 
+	<!-- #example_sidebar h3 a { -->
+	<!--    color: #F8D575; -->
+	<!--    font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif; -->
+	<!--    text-decoration: none; -->
+	<!-- } -->
 
-	.examples                  { display:              none; }
-	ol.examples {
-	   font-style: italic;
-	   text-decoration: none;
-	   font-family: Georgia, Times, serif; 
-	}
+	<!-- #example_sidebar  a { -->
+	<!--    color: #fff; -->
+	<!--    font-family: 'Bebas Neue', 'League Gothic', 'Arial Narrow', Arial, Helvetica, sans-serif; -->
+	<!-- } -->
+
+	<!-- .ui-layout-west h3 a { -->
+	<!--   position: relative; -->
+	<!--   padding-bottom: 6px; -->
+	<!--   font-size: 1.1em; -->
+	<!-- } -->
+
+	<!-- .examples                  { display:              none; } -->
+	<!-- ol.examples { -->
+	<!--    font-style: italic; -->
+	<!--    text-decoration: none; -->
+	<!--    font-family: Georgia, Times, serif; -->
+	<!-- } -->
 	
-	ol.examples li p {
-	   padding: 8px; 
-	   font-style: normal;
-	   font-family: Arial;
-	   border-left: 1px solid #999;
-	   font-size: 0.9em;
-	}
-	ol.examples a { font-size: 1.5em; }
-	ol.examples em { display: block;}
-	
-<html>
-  <body>
-    <h1>Welcome to the Tizen HTML Playground.</h1>
-  </body>
-</html>
-         width: 100%;
-   background: #444;
-   background: -webkit-gradient(linear, left top, right top, color-stop(0%,transparent), color-stop(10%,#400), color-stop(100%,transparent));
-   background: -webkit-linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
-   background: -moz-linear-gradient(left, transparent 0%, #444 50%, #transparent 100%);
-   background: -ms-linear-gradient(left, transparent 0%,#444 50%,#transparent 100%);
-   background: -o-linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
-   background: linear-gradient(left, transparent 0%,#444 50%,transparent 100%);
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,0)), color-stop(15%,rgba(30,87,153,0.8)), color-stop(19%,rgba(30,87,153,1)), color-stop(20%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(80%,rgba(30,87,153,1)), color-stop(81%,rgba(30,87,153,1)), color-stop(85%,rgba(30,87,153,0.8)), color-stop(100%,rgba(30,87,153,0)));
-   }
-
+	<!-- ol.examples li p { -->
+	<!--    padding: 8px; -->
+	<!--    font-style: normal; -->
+	<!--    font-family: Arial; -->
+	<!--    border-left: 1px solid #999; -->
+	<!--    font-size: 0.9em; -->
+	<!-- } -->
+	<!-- ol.examples a { font-size: 1.5em; } -->
+	<!-- ol.examples em { display: block;} -->
 
 	</style>
 
@@ -156,11 +142,19 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(3
 
 	<script>
 	  var example_data = [
-	  {name:"helloworld", htmlfile:"helloworld.html"}
-	  , {name:"Example 2", htmlfile:"example2.html"}];
+	    {id: "example_1", name:"Daniel Example", category: "css", description: "A sample application", htmlfile:"helloworld.html"}
+	  , {id: "example_2", name:"Matthew Example", category: "html5", description: "Another sample", htmlfile:"example2.html"}];
 	</script>
 
-	<script type="text/javascript" src="js/application.js"></script>	
+	<script type="text/javascript" src="js/application.js"></script>
+	<style>
+	  .ui-tabs .ui-tabs-nav li a {
+	      float: left;
+	      padding: .5em 1em;
+	      text-decoration: none;
+	      font-size: 0.75em;
+	   }
+	</style>	
 </head> 
 <body> 
 
@@ -171,6 +165,8 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(3
     </div>
   </header>
   
+  <img id="logo-image" src="css/images/appup/pulse.png" />
+
   <div id="container">
     <!--<Div Class="ui-layout-north ui-widget-content add-padding">North</div>--> 
     <div class="ui-layout-south ui-widget-content add-padding">
@@ -178,39 +174,45 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(3
     </div> 
     
 
-    <div class="ui-layout-west add-scrollbar add-padding">
-      <!-- <div id="accordion-west"> -->
+    <div class="ui-layout-west add-scrollbar add-padding grey">
+    
+	<ul class="ui-layout-north no-scrollbar allow-overflow">
+	  <li><a href="#tab-panel-center-5">Examples</a></li>
+	  <li><a href="#tab-panel-center-6">Help</a></li>
+	</ul>
+	
+    	<div class="ui-layout-center ui-widget-content">
+    	  <div id="tab-panel-center-5">
+    	    <div id="example_sidebar">
+    	      <h3><a id="html5-list-title" href="#">HTML5 Examples</a></h3>
+    	      <ol id="html5-list" class="examples">
+    	      </ol>
+    	      <h3><a id="css-list-title" href="#">CSS Examples</a></h3>
+    	      <ol id="css-list" class="examples">
+    	      </ol>
+    	      <h3><a id="wac-api-list-title" href="#">WAC API HTML5 Examples</a></h3>
+    	      <ol id="wac-api-list" class="examples">
+    	      </ol>
+    	      <h3><a id="html5-application-list-title" href="#">HTML5 Application Examples</a></h3>
+    	      <ol id="html5-application-list" class="examples">
+    	      </ol>
+    	    </div>
+    	  </div>
 
-      <div id="example_sidebar">
-	<h3><a id="html5-list-title" href="#">HTML5 Examples</a></h3>
-	<ol id="html5-list" class="examples">
-	  <li><p><em><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></em>A helloworld example</p></li>
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	</ol>
-	<h3><a id="css-list-title" href="#">CSS Examples</a></h3>
-	<ol id="css-list" class="examples">
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	</ol>
-	<h3><a id="wac-api-list-title" href="#">WAC API HTML5 Examples</a></h3>
-	<ol id="wac-api-list" class="examples">
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	</ol>
-	<h3><a id="html5-application-list-title" href="#">HTML5 Application Examples</a></h3>
-	<ol id="html5-application-list" class="examples">
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li>
-	  <li><a data="helloworld" class="example_link" href="index.html?example=helloworld">helloworld</a></li> 
-	</ol>
-      </div>
-	<!-- </div> -->
+    	  <div id="tab-panel-center-6">
+    	    <P>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</P>
+    	  </div>
+
+    	</div>
     </div>
     
 
 
 
 
-<div id="tabs-center" class="ui-layout-center no-scrollbar add-padding grey">
+
+
+<div class="ui-layout-center no-scrollbar add-padding grey">
 
   <ul class="ui-layout-north no-scrollbar allow-overflow">
     <li><a href="#tab-panel-center-1">HTML</a></li>
@@ -218,7 +220,7 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(3
     <li><a href="#tab-panel-center-3">CSS</a></li>
   </ul>
   <div class="ui-layout-center ui-widget-content add-scrollbar"> 
-    <!-- <div id="tab-panel-center-1" class="outline no-padding no-scrollbar"> -->
+    <div id="tab-panel-center-1" class="outline no-padding no-scrollbar">
       <textarea id='editorHTML'>
 <html>
   <body>

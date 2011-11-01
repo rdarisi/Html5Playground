@@ -17,8 +17,19 @@ $(document).ready(function () {
 	show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
     });
 
+    pageLayout.panes.west.tabs({
+	show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
+    });
+
     // WRAPPER-LAYOUT FOR TABS/TAB-PANELS, INSIDE OUTER-CENTER PANE
     pageLayout.panes.center.layout({
+	closable:			false
+	,	resizable:			false
+	,	spacing_open:		0
+	,	center__onresize:	$.layout.callbacks.resizeTabLayout // tabs/panels are wrapped with an inner-layout
+    });
+
+  pageLayout.panes.west.layout({
 	closable:			false
 	,	resizable:			false
 	,	spacing_open:		0
@@ -53,16 +64,20 @@ $(document).ready(function () {
 
     /* Dyanmically build the sidebar */
     var sidebar = $("#example_sidebar");
-    $.each(example_data, function(index, value) { 
-	sidebar.append(build_sidebar_link(value));
+    $.each(example_data, function(index, ex) { 
+	var category_name = ex.category;
+	var list = $("#" + category_name + "-list");
+	list.append(build_sidebar_example(ex));
     });
 
     /* Handle loading the examples */
-    $('a.example_link').click(function(e){
-	e.preventDefault();
+    $('a.example_link').click(function(example_link){
+	example_link.preventDefault();
 	load_example($(this).attr("data"));
     });
-		      
+
+
+    /* Collasping panels */
     $('#html5-list-title').click(function() {
       $('#html5-list').slideToggle(100, function() {
         // Animation complete.
@@ -88,8 +103,8 @@ $(document).ready(function () {
     });
 });
 
-function build_sidebar_link(ex) {
-    return '<p><a data="' + ex.name + '" class="example_link" href="index.html?example=' + ex.name + '">' + ex.name + '</a></p>';
+function build_sidebar_example(exampleJSON) {
+    return '<li><p><em><a data="' + exampleJSON.id + '" class="example_link" href="index.html?example="' + exampleJSON.id + '">' + exampleJSON.name + '</a></em>' + exampleJSON.description + '</p></li>';
 }
 
 function getURLParameter(name) {
@@ -119,7 +134,7 @@ function fetch_and_render_example(exampleJSON) {
 function load_example(example_name) {
     // Find the information associated with this example
     var exampleJSON = $.grep(example_data, function (ex) { 
-				 return ex.name === example_name; 
+				 return ex.id === example_name; 
 			     })[0];
     
     // If exampleJSON is undefined, it means that an example was 
