@@ -146,3 +146,27 @@ function load_example(example_name) {
 
 // Parse the URL parameters and get the example name
 var example_name = getURLParameter(name);
+
+
+function run(html,css,javascript) {
+	$.post("services/handler.php?f=run",{html:html,css:css,javascript:javascript},function(data) {
+		return data;
+	});
+}
+
+function show(id) {
+	$.post("services/handler.php?f=show",{id:id},function(data) {
+		return $.parseJSON(data);
+	});
+}
+
+function save(html,css,javascript,text) {
+	$.post("services/handler.php?f=save",{html:html,css:css,javascript:javascript,text:text},function(data) {
+		return data;
+	});	
+}
+function download (id) {
+	$.post("services/handler.php?f=download",{id:id},function(data) {
+		return data;
+	});
+}
