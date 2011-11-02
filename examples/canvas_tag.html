@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <canvas id="myCanvas" width="150" height="150">
+      your browser does not support the canvas tag 
+    </canvas>
+
+    <script type="text/javascript">
+      // this draws an arrow with a red triangle point
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      context.moveTo(0,0);
+      context.lineTo(150,150);
+      context.lineTo(150,50);
+      context.lineTo(50,150);
+      context.lineTo(150,150);
+      context.stroke();
+      context.fillStyle='#FF0000';
+      context.fill();
+    </script>
+    
+  </body>
+</html>

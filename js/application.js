@@ -4,10 +4,10 @@ $(document).ready(function () {
     pageLayout = $("div#container").layout({ // DO NOT use "var pageLayout" here
 	west__size:			.30 
 	,	south__size:		.40 
-	,	east__initClosed: true
+//	,	east__initClosed:       true
 	,	south__initClosed:	false
 	,	north__initClosed:	true
-	,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
+	//,	west__onresize:		$.layout.callbacks.resizePaneAccordions // west accordion a child of pane
 	//,	east__onresize:		$.layout.callbacks.resizePaneAccordions // east accordion nested inside a tab-panel 	         
     }); 
 
@@ -17,8 +17,19 @@ $(document).ready(function () {
 	show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
     });
 
+    pageLayout.panes.west.tabs({
+	show:				$.layout.callbacks.resizeTabLayout // tab2-accordion is wrapped in a layout
+    });
+
     // WRAPPER-LAYOUT FOR TABS/TAB-PANELS, INSIDE OUTER-CENTER PANE
     pageLayout.panes.center.layout({
+	closable:			false
+	,	resizable:			false
+	,	spacing_open:		0
+	,	center__onresize:	$.layout.callbacks.resizeTabLayout // tabs/panels are wrapped with an inner-layout
+    });
+
+  pageLayout.panes.west.layout({
 	closable:			false
 	,	resizable:			false
 	,	spacing_open:		0
@@ -39,8 +50,8 @@ $(document).ready(function () {
       pageLayout.sizeContent("east"); // resize pane-content-elements after creating east-tabs
     */
     // INIT ALL ACCORDIONS - EVEN THOSE NOT VISIBLE
-    $("#accordion-west")	.accordion({ fillSpace: true });
-    $("#accordion-center")	.accordion({ fillSpace: true });
+    //$("#accordion-west")	.accordion({ fillSpace: true });
+    //$("#accordion-center")	.accordion({ fillSpace: true });
     //$("#accordion-east")	.accordion({ fillSpace: true });
 
 
@@ -49,23 +60,51 @@ $(document).ready(function () {
     // if a new theme is applied, it could change the height of some content,
     // so call resizeAll to 'correct' any header/footer heights affected
     // NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
-    setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
+    //setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
 
     /* Dyanmically build the sidebar */
     var sidebar = $("#example_sidebar");
-    $.each(example_data, function(index, value) { 
-	sidebar.append(build_sidebar_link(value));
+    $.each(example_data, function(index, ex) { 
+	var category_name = ex.category;
+	var list = $("#" + category_name + "-list");
+	list.append(build_sidebar_example(ex));
     });
 
     /* Handle loading the examples */
-    $('a.example_link').click(function(e){
-	e.preventDefault();
+    $('a.example_link').click(function(example_link){
+	example_link.preventDefault();
 	load_example($(this).attr("data"));
+    });
+
+
+    /* Collasping panels */
+    $('#html5-list-title').click(function() {
+      $('#html5-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#css-list-title').click(function() {
+      $('#css-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#wac-api-list-title').click(function() {
+      $('#wac-api-list').slideToggle(100, function() {
+        // Animation complete.
+      });
+    });
+
+    $('#html5-application-list-title').click(function() {
+      $('#html5-application-list').slideToggle(100, function() {
+        // Animation complete.
+      });
     });
 });
 
-function build_sidebar_link(ex) {
-    return '<p><a data="' + ex.name + '" class="example_link" href="index.html?example=' + ex.name + '">' + ex.name + '</a></p>';
+function build_sidebar_example(exampleJSON) {
+    return '<li><p><em><a data="' + exampleJSON.id + '" class="example_link" href="index.html?example="' + exampleJSON.id + '">' + exampleJSON.name + '</a></em>' + exampleJSON.description + '</p></li>';
 }
 
 function getURLParameter(name) {
@@ -95,7 +134,7 @@ function fetch_and_render_example(exampleJSON) {
 function load_example(example_name) {
     // Find the information associated with this example
     var exampleJSON = $.grep(example_data, function (ex) { 
-				 return ex.name === example_name; 
+				 return ex.id === example_name; 
 			     })[0];
     
     // If exampleJSON is undefined, it means that an example was 
