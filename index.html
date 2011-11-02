@@ -323,6 +323,47 @@
 	     font-size: 0.75em;
 	  }
 	  .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 0.5em; background: none; }
+
+
+	#preview-buttons {
+	   position: absolute;
+	   top: 10px;
+	   right: 10px;
+	   width: 100%;
+	   text-align: right;
+	}
+
+	#preview-buttons p {
+	  margin:0;
+	  padding:0;
+	  font-size:0.7em;
+	}
+
+	  button.clean-gray {
+	  background-color: #EEE;
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
+	  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+	  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+	  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+	  background-image: linear-gradient(top, #eeeeee, #cccccc);
+	  border: 1px solid #CCC;
+	  border-bottom: 1px solid #BBB;
+	  -webkit-border-radius: 3px;
+	  -moz-border-radius: 3px;
+	  -ms-border-radius: 3px;
+	  -o-border-radius: 3px;
+	  border-radius: 3px;
+	  color: #333;
+	  font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	  line-height: 1;
+	  padding: 8px 0;
+	  text-align: center;
+	  text-shadow: 0 1px 0 #EEE;
+	  width: 100px;
+	  }
+
+
 	</style>	
 </head> 
 <body> 
@@ -333,7 +374,7 @@
       <h1 id="logo"><a href=""><img src="css/images/appup/logo-appup-main.png" alt="AppUp Playground Home Page" title="AppUp Playground"/></a></h1>
     </div>
 
-    <nav class="entry-unrelated" id="main-nav">
+    <nav id="main-nav">
       <ul>
 	<li class="li-articles"><a class="a-articles" href="/"><span>AppUp.com</span></a></li>
 	<li class="li-forums"><a class="a-forums" href="http://appdeveloper.intel.com/en-us/forum"><span>Forums</span></a></li>
@@ -349,6 +390,12 @@
   <div id="container">
     <!--<Div Class="ui-layout-north ui-widget-content add-padding">North</div>--> 
     <div class="ui-layout-south ui-widget-content add-padding">
+      <div id="preview-buttons">
+	<p>Preview as:</p>
+	<button class="clean-gray">SmartPhone</button>
+	<button class="clean-gray">Tablet</button>
+	<button class="clean-gray">Ultrabook</button>
+      </div>
       <iframe id="preview"></iframe>
     </div> 
     
@@ -367,7 +414,7 @@
 		<h1>Examples</h1>
     	      </Header>
 	      
-	      <p>These examples run best in Chrome, Safari, Firefox or the Intel AppUp a.</p>
+	      <p>These examples run best in Chrome, Safari, Firefox or the Intel AppUp Encapsulator.</p>
 	      
     	      <h3><a id="html5-list-title" href="#">HTML5 Examples</a></h3>
     	      <ul id="html5-list" class="examples">
